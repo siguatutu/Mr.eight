@@ -4,8 +4,7 @@ class Main {
     }
 
     _initGame() {
-        let miner = new Miner()
-        this._game = new Game(miner)
+        this._game = new Game()
         this._run()
     }
 
@@ -15,9 +14,9 @@ class Main {
         for (const name in IMAGE) {
             if (IMAGE.hasOwnProperty(name)) {
                 promises.push(new Promise((reslove, reject) => {
-                    const imageUrl = IMAGE[name];
+                    const base64 = IMAGE[name];
                     let img = new Image()
-                    img.src = `../img/${imageUrl}`
+                    img.src = base64
                     img.onload = () => {
                         window.imagePool[name] = img
                         reslove()
@@ -30,7 +29,7 @@ class Main {
         Promise.all(promises).then(() => {
             this._initGame()
         }).catch((err) =>{
-            this._error()
+            this._error(err)
         })
     }
 
@@ -38,8 +37,8 @@ class Main {
         this._game.run()
     }
 
-    _error() {
-        console.log('err')
+    _error(err) {
+        console.log('err', err)
     }
 
 }

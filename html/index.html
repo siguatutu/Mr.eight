@@ -4,9 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="../js/config.js"></script>
+    <!-- 配置文件 -->
+    <script src="../js/common/imageBase64.js"></script>
+    <script src="../js/common/point.js"></script>
+    <script src="../js/common/rect.js"></script>
+    <script src="../js/common/config.js"></script>
+    <script src="../js/common/utils.js"></script>
+
+    <!-- 关卡文件 -->
+    <script src="../js/level.js"></script>
+
+    <!-- element文件 -->
+    <script src="../js/elements/element.js"></script>
+    <script src="../js/elements/diamond.js"></script>
+    <script src="../js/elements/pig.js"></script>
+    <script src="../js/elements/gold.js"></script>
+    <script src="../js/elements/pocket.js"></script>
+    <script src="../js/elements/stone.js"></script>
+
+    <script src="../js/elements/elementCreator.js"></script>
     <script src="../js/miner.js"></script>
+    <script src="../js/scene.js"></script>
     <script src="../js/game.js"></script>
+    <script src="../js/hook.js"></script>
+    <script src="../js/rope.js"></script>
+    <script src="../js/ropeControl.js"></script>
+
+    <!-- main -->
     <script src="../js/index.js"></script>
     <style>
         * {
@@ -16,6 +40,10 @@
         html, body {
             height: 100%;
             width: 100%;
+        }
+        body {
+            overflow-x: hidden;
+            overflow-y: hidden;
         }
         canvas {
             display: block;

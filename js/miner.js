@@ -1,33 +1,38 @@
 class Miner {
     constructor() {
-        this._imgName = 'daoshilaoba'
+        this._type = 'daoshilaoba'
+        this._width = 100
+        this._height = 150
     }
 
-    init(game) {
-        this._width = 100
-        this._heigth = 100
-        this._x = game.width / 2 - this._width
-        this._y = game.height / 5 - this._heigth
-        this._initImage()
+    init() {
+        this.img = window.imagePool[this._type]
     }
     
-    _initImage() {
-        this.img = window.imagePool[this._imgName]
-        let canvas = document.createElement('canvas')
-        canvas.width = this._width
-        canvas.height = this._heigth
-        let ctx = canvas.getContext('2d')
-        ctx.drawImage(this.img, 0, 0, this._width, this._heigth)
-        // document.body.appendChild(canvas)
-        this.canvas = canvas
+    initPos(x, y) {
+        this._x = x
+        this._y = y
     }
 
     render(context) {
         context.save()
-        context.translate(this._x, this._y)
-        context.drawImage(this.canvas, 0, 0, this._width, this._heigth)
-        // context.fillStyle = 'black'
-        // context.fillRect(this._x, this._y, this._width, this._height)
+        context.drawImage(this.img, this._x, this._y, this._width, this._height)
         context.restore()
+    }
+
+    get x() {
+        return this._x
+    }
+
+    get y() {
+        return this._y
+    }
+
+    get width() {
+        return this._width
+    }
+
+    get height() {
+        return this._height
     }
 }
